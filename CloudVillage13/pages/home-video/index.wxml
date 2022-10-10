@@ -1,0 +1,12 @@
+<!--pages/home-video/index.wxml-->
+<view class="video">
+  <!-- topMVs遍历出来的数据里面有id, 所以这里的key就用id -->
+  <view class="item" wx:for="{{topMVs}}" wx:key="id">
+    <video-item-v1
+      item="{{item}}"
+      bindtap="handleVideoItemClick"
+      data-item="{{item}}"
+    >
+    </video-item-v1>
+  </view>
+</view>

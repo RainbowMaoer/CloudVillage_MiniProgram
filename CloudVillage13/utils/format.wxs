@@ -1,0 +1,43 @@
+// 格式化播放量函数
+function formatCount(count) {
+  // 有可能传进来的是字符串, 所以先确保这个是数字
+  var counter = parseInt(count)
+  if (counter > 100000000) {
+    // 保留一位小数
+    return (counter / 100000000).toFixed(1) + '亿'
+  } else if (counter > 10000) {
+    return (counter / 10000).toFixed(1) + '万'
+  } else {
+    // 其他的转换成字符串
+    return counter + ''
+  }
+}
+
+// 时间补零小优化
+function padLeftZero(time) {
+  time = time + ''
+  // 这里是个小算法, 比如传进来是个12, 到时候就是0012然后就会截掉前面两位, 得到12
+  // 传进来比如是9 到时候就是009, 然后截掉前面一位, 得到09, 每次截取长度取决于传入time的长度
+  return ('00' + time).slice(time.length)
+}
+
+// 格式化时间函数
+function formatDuration(duration) {
+  // 先将毫秒转换成秒
+  duration = duration / 1000
+  // 获取分钟和秒, 一般音乐MV是不会有小时的, 如果有小时也是可以进行判断的
+  // 小时的话获取之后, 判断是否大于0, 大于0就拼接, 小于就不拼接
+  var minute = Math.floor(duration / 60)
+  // 获取秒的时候如果担心duration不是整数, 可以先Math.floor转换成整数
+  var second = Math.floor(duration) % 60
+
+  return padLeftZero(minute) + ':' + padLeftZero(second)
+}
+
+// 一些页面交互相关的js代码都写在wxs文件里面, 并且它不支持ES6以后的新语法
+// 所以这里export导出都不能使用, 这里需要使用commonjs的导出方式
+module.exports = {
+  // 因为不支持ES6, 这里连对象增强写法都不能使用
+  formatCount: formatCount,
+  formatDuration: formatDuration
+}

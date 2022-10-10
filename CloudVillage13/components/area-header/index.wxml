@@ -1,0 +1,20 @@
+<!--components/area-header/index.wxml-->
+<view class="header">
+  <view class="title">{{title}}</view>
+  <view class="right" wx:if="{{showRight}}" bindtap="handleRightClick">
+  <!-- 上面这个是插槽的内容 -->
+  <view class="slot"><slot></slot></view>
+  <!-- 下面这个是默认显示的内容 -->
+    <view class="default">
+      <text>{{rightText}}</text>
+      <image class="icon" src="/assets/images/icons/arrow-right.png"></image>
+    </view>
+    <!-- 这里我们通过以上方式来实现vue里面的默认插槽的效果 -->
+    <!-- 微信小程序目前没有支持这个功能, 这里当我们给插槽里面传入了东西的时候
+    就隐藏掉default这部分默认内容, 这里结合wxss的设置来做到传入内容的时候
+    自动隐藏default的内容, 没传入的时候自动显示 -->
+  </view>
+</view>
+
+<!-- 这个文件里面默认插槽的解决方式有很多, 这里我们采用了最优雅的一种方式
+这里也可以采用js传入一个属性来控制默认的这部分内容是否显示 -->

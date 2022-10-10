@@ -1,0 +1,105 @@
+/* pages/home-music/index.wxss */
+page {
+  padding: 0 20rpx;
+  /* 这个样式需要全局生效, 直接设置在app.wxss里面 */
+  /* box-sizing: border-box; */
+}
+
+/* 以为我们上面给整个页面都加了padding, 这里我们把search组件里面的padding覆盖一下 */
+/* 小程序会对不同文件的css样式做一个隔离, 我们想要共享这个css, 就抽取到app.wxss里面了 */
+/* .van-search {
+  padding: 10px 0 !important;
+}
+
+.van-search__content {
+  background-color: #fff !important;
+} */
+
+/* 轮播图样式 */
+.swiper {
+  border-radius: 10rpx;
+  /* 这里必须设置一下溢出隐藏, 不然不会看不到效果 */
+  overflow: hidden;
+  /* 这里我看到的圆角效果还行, 因为手机系统是webview渲染的的页面
+  有时候会出现圆角不生效或者部分不生效的问题, 这时候需要用到下面一行代码 */
+  /* 这个是社区里面解决这个bug方式, 这里我模拟器暂且没有出现这种问题, 我就注释掉了 */
+  /* transform: translateY(0); */
+}
+
+.swiper-item {
+  /* 设置flex布局, 解决图片底部三像素空隙的问题 */
+  display: flex;
+}
+
+.swiper-item .swiper-image {
+  width: 100%;
+}
+
+/* 播放工具栏 */
+.play-bar-placeholder {
+  height: 44px;
+}
+
+.play-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 8px;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 44px;
+  bottom: 0;
+
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+
+  background-color: #fafafa;
+}
+
+.play-bar .left, .play-bar .right {
+  display: flex;
+  align-items: center;
+}
+
+.play-bar .left .album {
+  /* 模仿qq音乐, 这里让图片突出play-bar一点点 */
+  position: relative;
+  top: -8px;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.play-bar .left .name {
+  font-size: 14px;
+  margin-left: 10rpx;
+}
+
+.play-bar .right .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.play-bar .right .play {
+  width: 25px;
+  height: 25px;
+  margin-right: 10rpx;
+}
+
+/* album的动画 */
+@keyframes albumRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.album-anim {
+  animation: albumRotate 18s linear infinite;
+}

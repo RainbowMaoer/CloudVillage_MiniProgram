@@ -1,0 +1,20 @@
+<!--base-ui/nav-bar/index.wxml-->
+<view class="nav">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar" style="height: {{navBarHeight}}px;">
+    <view class="left" bindtap="handleLeftClick">
+      <!-- 这里在做插槽效果的时候, 插槽要写在left-arrow前面, 不然样式会不生效 -->
+      <view class="left-slot">
+        <slot name="left"></slot>
+      </view>
+      <view class="left-arrow">
+        <image class="icon" mode="widthFix" src="/assets/images/icons/arrow-left.png"></image>
+      </view>
+    </view>
+    <view class="center">
+      <view class="center-slot"><slot name="title"></slot></view>
+      <view class="center-title">{{title}}</view>
+    </view>
+    <view class="right"></view>
+  </view>
+</view>

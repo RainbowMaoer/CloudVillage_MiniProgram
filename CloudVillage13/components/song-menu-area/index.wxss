@@ -1,0 +1,22 @@
+/* components/song-menu-area/index.wxss */
+.menu-list {
+  /* 设置这个是让整个screen-view的宽度撑满屏幕的宽度 */
+  width: 100vw;
+  white-space: nowrap;
+  /* 因为给每个盒子设置左边距的时候第一个会有点问题, 所以这里把整个screen-view向左偏移一下 */
+  position: relative;
+  left: -20rpx;
+}
+
+.menu-item {
+  display: inline-block;
+  /* 加这一行代码的原因是模拟器中图片可以对齐, 但是真机测试的时候可能会出现不对齐的情况 */
+  vertical-align: top;
+  width: 220rpx;
+  margin-left: 20rpx;
+}
+
+.menu-item:last-of-type {
+  /* 给最后一个item加上右边距 */
+  margin-right: 20rpx;
+}

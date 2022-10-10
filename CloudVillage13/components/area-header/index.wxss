@@ -1,0 +1,33 @@
+/* components/area-header/index.wxss */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+}
+
+.header .title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+/* 这里用到一个伪类, 当.slot这个元素里面的子元素为空的时候 */
+/* 我们给default设置一个属性, 这里设置flex让元素显示 */
+/* 也就是说当有传值过来的时候就不会触发这个样式 */
+/* 这里是需要用用一个加号连接起来的, 当前面的为空的时候, 我们给后面这个设置属性 */
+.header .slot:empty + .default {
+  display: flex;
+}
+
+.header .default {
+  /* 这里的display: none;是结合上面的样式一起用的 */
+  display: none;
+  align-items: center;
+  font-size: 28rpx;
+  color: #777;
+}
+
+.header .default .icon {
+  width: 50rpx;
+  height: 50rpx;
+}

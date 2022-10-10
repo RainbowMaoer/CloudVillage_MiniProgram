@@ -1,0 +1,13 @@
+<!--components/song-item-v1/index.wxml-->
+<!-- 这里监听handleSongItemClick点击的时候需要获取id, 我们可以自定义属性获取
+也可以在js文件里面, 通过properties获取 -->
+<view class="item" bindtap="handleSongItemClick" data-id="{{item.id}}">
+  <image class="image" src="{{item.al.picUrl}}"></image>
+  <view class="content">
+    <view class="name">{{item.name}}</view>
+    <view class="source">{{item.ar[0].name}} · {{item.al.name}}</view>
+  </view>
+  <view class="arrow">
+    <image class="icon" src="/assets/images/icons/arrow-right.png"></image>
+  </view>
+</view>

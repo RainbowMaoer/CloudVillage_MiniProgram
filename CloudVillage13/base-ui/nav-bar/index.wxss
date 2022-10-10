@@ -1,0 +1,42 @@
+/* base-ui/nav-bar/index.wxss */
+.nav-bar {
+  display: flex;
+  text-align: center;
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+}
+
+.left-arrow {
+  display: none;
+}
+
+/* + 相邻兄弟选择器, 只能选择在这个元素的后面一个元素, 这里也会是left-arrow要放到.left-slot后面 */
+.left-slot:empty + .left-arrow {
+  display: block;
+}
+
+.center-title {
+  display: none;
+}
+
+.center-slot:empty + .center-title {
+  display: block;
+}
+
+.left .left-arrow .icon {
+  width: 44rpx;
+  /* 去除图片底下的三像素 */
+  display: block;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

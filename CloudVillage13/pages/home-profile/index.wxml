@@ -1,0 +1,10 @@
+<!--pages/home-profile/index.wxml-->
+<!-- 以这种方式获取用户信息一样是获取不到的, 获取到的昵称固定即使微信用户, 头像也是一个空的灰头像 -->
+<!-- <button open-type="getUserInfo" bindgetuserinfo="handleGetUser">获取用户信息</button> -->
+<button open-type="getUserInfo" bindtap="handleGetUser">获取用户信息</button>
+<!-- 上面的open-type定义成getUserInfo是获取用户信息的, 这getPhoneNumber是获取手机号的 -->
+<button
+  open-type="getPhoneNumber"
+  bindgetphonenumber="handleGetPhoneNumber"
+>
+获取用户手机号码</button>
